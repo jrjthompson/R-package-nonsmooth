@@ -1,4 +1,6 @@
-data.generate <- function(n,data.type,sigma){
+data.generate <- function(n = NA,
+                          data.typ = "continuousWithJump",
+                          sigma = NA){
   if (data.type=="uniformJump"){# 3 uniforms
     X <- c(seq(0,1,3/n),seq(1+3/n,2,3/n),seq(2+3/n,3,3/(n-1)))
     oracle <- c(rep(1,length(seq(0,1,3/n))),rep(7,length(seq(1+3/n,2,3/n))),rep(3,length(seq(2+3/n,3,3/n))))
@@ -10,7 +12,7 @@ data.generate <- function(n,data.type,sigma){
   } else if (data.type=="continuousWithJump"){
     X <- seq(0,3,length.out = n)
     X.1 <- X[1:round(length(X)/2)]
-    X.2 <- X[(round(length(X)/2)+1):length(X)] 
+    X.2 <- X[(round(length(X)/2)+1):length(X)]
     oracle <- c(50*((X.1/3)^2-(X.1/3)^3),50*((X.2/3)^2-(X.2/3)^3)+5)
     Y <- oracle+rnorm(n,sd = sigma)
   } else if (data.type=="gradualJump"){
