@@ -1,12 +1,12 @@
 Package: nonsmooth
-Title: Nonparametric methods for smoothing nonsmooth data 
+Title: Nonparametric Methods for Smoothing Nonsmooth Data 
 Version: 0.0.0.9000
 Imports: stats, np, graphics, reshape2
 Authors@R: 
     person("John R.J.", "Thompson", , "john.thompson@ubc.ca", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-6303-449X"))
-Description: Nonparametric methods for smoothing regression function data with change-points
-License: CC BY 4.0
+Description: Nonparametric methods for smoothing regression function data with change-points, including iterative and anisotropic smoothing methods. For further details, see the paper John R.J. Thompson (2024), <https://www.tandfonline.com/doi/abs/10.1080/02664763.2024.2352759>.
+License: `use_ccby_license()`
 URL: https://github.com/jrjthompson/R-package-nonsmooth/
 BugReports: https://github.com/jrjthompson/R-package-nonsmooth/issues
 Repository: CRAN
