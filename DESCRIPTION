@@ -10,3 +10,4 @@ License: `use_ccby_license()`
 URL: https://github.com/jrjthompson/R-package-nonsmooth/
 BugReports: https://github.com/jrjthompson/R-package-nonsmooth/issues
 Repository: CRAN
+LazyData: true
