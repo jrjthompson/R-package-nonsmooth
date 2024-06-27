@@ -1,18 +1,19 @@
 \name{fireExp}
 \docType{data}
-\alias{fureExp}
-\title{ Fire spread experiments conducted in a fume hoood}
+\alias{fireExp}
+\title{Fire spread experiments conducted in a fume hoood}
 \description{
 
-Update dummy!
-
-British cross-section data consisting of a random sample taken from
-the British Family Expenditure Survey for 1995. The households consist
-of married couples with an employed head-of-household between the ages
-of 25 and 55 years. There are 1655 household-level observations in
-total.
+The fire spread data consists of segmented images from 29 fire
+smouldering experiments of wax paper. The data were measured using
+a digital camera at a birds-eye view above the experiment. The data
+is segmented by 1 second between images. There are 16 experiments
+where the laying flat, 8 experiments at an angle of 11 degrees, and
+5 experiments at an angle of 32 degrees. To access eachvideos, use
+\code{flat##}, \code{11slope0#}, and \code{32slope0#}. The uphill
+direction in each experiment is to the left in an image.
 }
-\usage{data("Engel95")}
+\usage{data("11slope01")}
 \format{ A data frame with 10 columns, and 1655 rows.
   \describe{
  \item{food}{ expenditure share on food, of type \code{numeric}}
@@ -27,15 +28,12 @@ total.
  \item{nkids}{ number of children, of type \code{numeric}}
   }
 }
-\source{ John R.J. Thompson and W. John Braun }
+\source{ John R.J. Thompson}
 \references{
 
-  Blundell, R. and X. Chen and D. Kristensen (2007),
-  \dQuote{Semi-Nonparametric IV Estimation of Shape-Invariant Engel
-  Curves,} Econometrica, 75, 1613-1669.
+  Thompson, J.R.J., Wang, X.J., & Braun, W.J. (2020) \dQuote{A mouse model for studying fire spread rates using experimental micro-fires}, *Journal of Environmental Statistics*, 9(1), 1-19. <http://www.jenvstat.org/v09/i06>
 
-  Li, Q. and J.S. Racine (2007), \emph{Nonparametric Econometrics:
-  Theory and Practice,} Princeton University Press.
+    Wang, X.J., Thompson, J.R.J., Braun, W.J., & Woolford, D.G. (2019) \dQuote{Fitting a stochastic fire spread model to data.} \emph{Advances in Statistical Climatology, Meteorology and Oceanography}, 5(1), 57-66. <https://ascmo.copernicus.org/articles/5/57/2019/>
 
 }
 
@@ -43,18 +41,9 @@ total.
 
 \examples{
 \dontrun{
-## Example - compute nonparametric instrumental regression using
-## Landweber-Fridman iteration of Fredholm integral equations of the
-## first kind.
+## Example - load and view a fire spread experiment
 
-## We consider an equation with an endogenous regressor (`z') and an
-## instrument (`w'). Let y = phi(z) + u where phi(z) is the function of
-## interest. Here E(u|z) is not zero hence the conditional mean E(y|z)
-## does not coincide with the function of interest, but if there exists
-## an instrument w such that E(u|w) = 0, then we can recover the
-## function of interest by solving an ill-posed inverse problem.
-
-data(Engel95)
+data(11slope01)
 
 ## Sort on logexp (the endogenous regressor) for plotting purposes
 
