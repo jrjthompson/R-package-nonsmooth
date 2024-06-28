@@ -3,34 +3,35 @@
 \title{Iterative anisotropic local constant smoothing
 }
 \description{
-This function implements the method in Thompson, J.R.J. (2024) for iterative smoothing of change-point data that utilizes oversmoothed estimates of the underlying data generating process to inform re-smoothing.
+This function implements the method in Thompson, J.R.J. (2024) for iterative smoothing
+of change-point data that utilizes oversmoothed estimates of the underlying data
+generating process to inform re-smoothing. The function calculates a local constant
+estimator \eqn{\tilde{g}(X)} of \eqn{Y=g(X)+\epsilon}, and then utilizes \eqn{\tilde{g}(x)}
+in the range kernel of another local constant estimator. This processes is iterated
+for a specified number of resmooth iterations.
 }
 \usage{
-alc(X,Y,bw.fixed.value=NULL,resmooths=1,ckertype="gaussian",bwmethod="cv.ls")
+alc(X,Y,bw.fixed.value=NULL,resmooths=1,\dots)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{X}{
-matrix of \eqn{p} columns containing the input values of the observations, each observation belonging to \eqn{[0,1]^p}.
+  matrix of \eqn{p} columns of the observations for continuous explanatory variables}.
 }
   \item{Y}{
-  vector containing the corresponding response variable associated to the input values \eqn{\texttt{x}}.
+  vector of the continuous response variable.
 }
   \item{bw.fixed.value}{
-order of the B-spline basis used in the regression model. Default is 3 (quadratic B-splines).
+  vector of fixed bandwidths for domain kernels. Default is \code{NULL}, which allows
+  for optimal bandwidth selection via cross-validaton during each re-smooth.
 }
   \item{resmooths}{
-  number of evenly spaced knots to use in the B-spline basis. Default value is 1.
+  number of resmooth iterations. Default is 1 resmooth, which is a suggested starting point
+  for iterative smoothing.
 }
-  \item{ckertype}{
-list of characters or integers, labels of the variables. Default is \eqn{\texttt{NULL}}.
-}
- \item{bwmethod}{
-  logical, if TRUE then a parallelized version of the code is used. Default is FALSE.
-}
-  \item{nbCore}{
- numerical, number of cores used for parallelization, if parallel is set to TRUE.
-}
+  \item{\dots}
+  additional specifications for optimal bandwidth selection procedure, kernel type,
+  regression estimator, and so on. See \code{\link{npreg}} for more details
 }
 \value{
 \item{selec.var}{list of vectors of the selected variables, one vector for each penalization parameter.}
@@ -42,17 +43,16 @@ list of characters or integers, labels of the variables. Default is \eqn{\texttt
 }
 
 \examples{
-# --- Loading values of x --- #
-data('x_obs')
-# --- Loading values of the corresponding y --- #
-data('y_obs')
-x_trunc = x_obs[1:70,,drop=FALSE]
-y_trunc = y_obs[1:70]
+## 1D Simulated changepoint data
+changepoint.data <- changepoint.sim1D(100)
 
-# --- Variable selection of f1 --- #
+model.alc <- alc(changepoint.data$X,changepoint.data$)
+
+plot(changepoint.data$X,changepoint.data$Y,xlab = "X",ylab = "Y",pch=1,col="grey",las=1)
+lines(changepoint.data$X,model.llc$mean,col="red",lty=1)
+
+## 2D Simulated changepoint data
 absorber(x=x_trunc, y=y_trunc, M = 3)
-\donttest{
-# --- Parallel computing --- #
-absorber(x=x_trunc, y=y_trunc, M = 3, parallel = TRUE, nbCore = 2)
-}
+
+## 2D Real data
 }
