@@ -16,6 +16,6 @@ alc <- function(X,Y,bw.fixed.value=NULL,
     }
     model.alc <- npreg(bw.llc)
   }
-  model.alc
+  # return(list(lambdas = GL$lambda, selec.var = dimSelec, aic.var = dim.aic))
 }
 
