@@ -1,6 +1,6 @@
-\name{fireExp}
+\name{11slope01}
 \docType{data}
-\alias{fireExp}
+\alias{11slope01}
 \title{Fire spread experiments conducted in a fume hoood}
 \description{
 
@@ -19,15 +19,23 @@ Each fire movie is a data frame with four dimensions called
 columns of one image. The third dimension is each RGB channel, with
 the red channel (1), blue channel (2), and green channel (3). The
 fourth dimension is time, starting at igntion (time point 1), and
-then each RGB image is seperated by one second. To access each video, use \code{flat##}, \code{11slope0#}, and \code{32slope0#}.
+then each RGB image is seperated by one second. To access each video,
+use \code{flat##}, \code{11slope0#}, and \code{32slope0#}.
 }
 
 \source{John R.J. Thompson}
 \references{
 
-  Thompson, J.R.J., Wang, X.J., & Braun, W.J. (2020) \dQuote{A mouse model for studying fire spread rates using experimental micro-fires}, *Journal of Environmental Statistics*, 9(1), 1-19. <http://www.jenvstat.org/v09/i06>
+  Thompson, J.R.J., Wang, X.J., & Braun, W.J. (2020) \dQuote{A mouse
+  model for studying fire spread rates using experimental micro-fires},
+  \emph{Journal of Environmental Statistics}, 9(1), 1-19.
+  <http://www.jenvstat.org/v09/i06>
 
-  Wang, X.J., Thompson, J.R.J., Braun, W.J., & Woolford, D.G. (2019) \dQuote{Fitting a stochastic fire spread model to data.} \emph{Advances in Statistical Climatology, Meteorology and Oceanography}, 5(1), 57-66. <https://ascmo.copernicus.org/articles/5/57/2019/>
+  Wang, X.J., Thompson, J.R.J., Braun, W.J., & Woolford, D.G. (2019)
+  \dQuote{Fitting a stochastic fire spread model to data.}
+  \emph{Advances in Statistical Climatology, Meteorology and
+  Oceanography}, 5(1), 57-66.
+  <https://ascmo.copernicus.org/articles/5/57/2019/>
 
 }
 
@@ -62,7 +70,8 @@ for (rgb in 1:3){ #red(1),green(2),blue(3)
   Z<-data[,3]
 
   bw.lc <- npregbw(xdat = X,ydat = Z,regtype=regtype,bwmethod=bwmethod,ckertype=ckertype,
-                   bandwidth.compute = FALSE,bws=c(0.5*sd(X[,1])/(dim(X)[1]^(1/6)),0.5*sd(X[,1])/(dim(X)[1]^(1/6))))
+                   bandwidth.compute = FALSE,
+                   bws=c(0.5*sd(X[,1])/(dim(X)[1]^(1/6)),0.5*sd(X[,1])/(dim(X)[1]^(1/6))))
   model.lc <- npreg(bw.lc) #this can take some time
   model.alc <- model.lc
 
@@ -70,7 +79,8 @@ for (rgb in 1:3){ #red(1),green(2),blue(3)
 
   X <- data.frame(data[,1:2],gx=model.alc$mean)
   model.alc$bw <- c(model.alc$bw,bw.alc)
-  bw.alc <- npregbw(xdat = X,ydat = Z,bws=model.alc$bw, regtype=regtype,bwmethod=bwmethod,ckertype=ckertype,bandwidth.compute = FALSE)
+  bw.alc <- npregbw(xdat = X,ydat = Z,bws=model.alc$bw,
+                    regtype=regtype,bwmethod=bwmethod,ckertype=ckertype,bandwidth.compute = FALSE)
   model.alc<- npreg(bw.alc) #this can take some time
 
   smoothed.fire.image[,,rgb] <- model.alc$mean
