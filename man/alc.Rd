@@ -30,14 +30,15 @@ alc(X,Y,bw.fixed.value=NULL,resmooths=1,\dots)
   for iterative smoothing.
 }
   \item{\dots}{
-  additional specifications for optimal bandwidth selection procedure, kernel type,
-  regression estimator, and so on. See \code{\link{npreg}} for more details.
+  additional specifications for \code{np} smoothing, such as optimal bandwidth selection
+  procedure, kernel type,  regression estimator, and so on. See \code{npreg} function for
+  more details. The defaults
 }
 }
 
 \value{
  The code here returns a \code{npregression} object. For more details, see the \code{npreg}
- function in the \code{np} package linked below.
+ function in the \code{np} package.
 }
 
 \seealso{

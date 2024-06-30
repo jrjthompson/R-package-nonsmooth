@@ -1,5 +1,4 @@
-alc <- function(X,Y,bw.fixed.value=NULL,
-                resmooths=1,ckertype="gaussian",bwmethod="cv.ls",regtype="lc"){
+alc <- function(X,Y,bw.fixed.value=NULL,resmooths=1,...){
   ## Fit data using local constant kernel estimator (LC)
   bw.lc <- npregbw(Y~X,regtype=regtype,bwmethod=bwmethod,ckertype=ckertype)
   model.lc <- npreg(bw.lc)
@@ -10,12 +9,12 @@ alc <- function(X,Y,bw.fixed.value=NULL,
   for (i in 1:resmooths){
     gX <- model.alc$mean
     ## Refit data using the local constant estimator as an input
-    bw.llc <- npregbw(Y~X+gX,regtype=regtype,bwmethod=bwmethod,ckertype=ckertype)
+    bw.llc <- npregbw(Y~X+gX,...)
     if (!is.null(bw.fixed.value)){
       bw.llc$bw <- c(bw.llc$bw[1:dim(X)[2]],bw.fixed.value)
     }
     model.alc <- npreg(bw.llc)
   }
-  # return(list(lambdas = GL$lambda, selec.var = dimSelec, aic.var = dim.aic))
+  return(model.alc)
 }
 

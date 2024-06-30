@@ -27,7 +27,7 @@ and the data generating process.
 \item{oracle}{Vector of the data generating process for \code{Y}}
 }
 
-}
+
 
 \references{
 

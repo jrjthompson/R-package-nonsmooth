@@ -10,22 +10,32 @@ This function generates circular change-point data.
 }
 
 \usage{
-changepoint.sim2D(data.dim = c(100,100),sigma = 20,radius=data.dim[1]*35/(2*70),cbase=80,ctop=130))
+changepoint.sim2D(data.dim = c(100,100),sigma = 20,radius=NULL,cbase=80,ctop=130))
 }
 
 \arguments{
-  \item{data}{Vector of two integers for the size of the two-dimensional dataset.
-  The dimensions are suggested to be the same. However, for uneven dimensions, the first value
-  must be larger.}
-  \item{sigma}{Numeric value of standard deviation.}
-  \item{radius}{Radius of the inner disk before the change-point}
-  \item{cbase}{Value for the disk that radiates out from the approximate center of the dataset.}
-  \item{ctop}{Value after the circular change-point.}
+  \item{data.dim}{
+  Vector of two integers for the size of the two-dimensional dataset. The dimensions
+  are suggested to be the same. However, for uneven dimensions, the first value must
+  be larger.}
+  \item{sigma}{
+  Numeric value of standard deviation.
+  }
+  \item{radius}{
+  Radius of the inner disk before the change-point. Defaults to one quarter of
+  the first dimension of \code{data.dim}.
+  }
+  \item{cbase}{
+  Value for the disk that radiates out from the approximate center of the dataset.
+  }
+  \item{ctop}{
+  Value after the circular change-point, seperating the disk and the outer region.
+  }
 }
 
 
-\value{This function produces a matrix of integer values.}
-
+\value{
+  This function produces a matrix of integer values.
 }
 
 \references{
@@ -37,6 +47,7 @@ changepoint.sim2D(data.dim = c(100,100),sigma = 20,radius=data.dim[1]*35/(2*70),
 \examples{
 library(reshape2)
 changepoint.data <- changepoint.sim2D()
-image(1:nrow(changepoint.data), 1:ncol(changepoint.data), matrix(changepoint.data, nrow=nrow(changepoint.data), byrow=FALSE))
+image(1:nrow(changepoint.data), 1:ncol(changepoint.data),
+      matrix(changepoint.data, nrow=nrow(changepoint.data), byrow=FALSE))
 }
 

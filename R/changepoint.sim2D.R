@@ -1,8 +1,9 @@
-changepoint.sim2D <-  function(data.dim = c(100,100),sigma = 20,radius=data.dim[1]*35/(2*70),cbase=80,ctop=130) {
+changepoint.sim2D <-  function(data.dim = c(100,100),sigma = 20,radius=NULL,cbase=80,ctop=130) {
   ## radius is the radius of the circle should be less than both dim(circle.data)/2
   ## circle.data is the dimensions of the blank canvas to draw the circle, should be set to some value different from 80
   ## sigma is the noise term
   circle.data <- matrix(130,data.dim[1],data.dim[2])
+  if(is.null(radius)) radius <- data.dim[1]/4 # a default radius if none is specified
   img <- melt(id.var=1:nrow(circle.data), circle.data)
   names(img) <- c("rows","cols","z")
 
