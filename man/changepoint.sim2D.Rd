@@ -10,7 +10,7 @@ This function generates circular change-point data.
 }
 
 \usage{
-changepoint.sim2D(data.dim = c(100,100),sigma = 20,radius=NULL,cbase=80,ctop=130))
+changepoint.sim2D(data.dim = c(100,100),sigma = 20,radius=NULL,cbase=80,ctop=130)
 }
 
 \arguments{

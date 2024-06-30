@@ -113,7 +113,6 @@ image(1:dim(changepoint.data)[1], 1:dim(changepoint.data)[2],
   image(1:dim(changepoint.data)[1], 1:dim(changepoint.data)[2],
       matrix(model.alc$mean, nrow=dim(changepoint.data)[1], byrow=FALSE))
   }
-}
 options(np.messages=TRUE)
 }
 
