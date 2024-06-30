@@ -49,25 +49,72 @@ alc(X,Y,bw.fixed.value=NULL,resmooths=1,\dots)
 library(np)
 options(np.messages=FALSE)
 
-## 1D Simulated changepoint data
-changepoint.data <- changepoint.sim1D(100)
+## 1D Simulated change-point data
+changepoint.data <- changepoint.sim1D(500)
 
+## Isotropic local constant model
+bw.lc <- npregbw(Y~X,data=changepoint.data)
+model.lc <- npreg(bw.lc)
+
+## Anisotropic local constant model with one resmooth iteration
 model.alc <- alc(changepoint.data$X,changepoint.data$Y)
 
-plot(changepoint.data$X,changepoint.data$Y,xlab = "X",ylab = "Y",pch=1,col="grey",las=1)
+## Plot isotropic and anistropic smoothers
+plot(changepoint.data$X,changepoint.data$Y,xlab = "X",ylab = "Y",
+     pch=1,col="grey",las=1)
+lines(changepoint.data$X,model.lc$mean,col="blue",lty=1)
 lines(changepoint.data$X,model.alc$mean,col="red",lty=1)
 
-## 2D Simulated changepoint data
+## 2D Simulated image change-point data
+library(reshape2)
+changepoint.data <- changepoint.sim2D(data.dim=c(50,50))
+image(changepoint.data)
 
+## Melt the 2D image data for model estimation
+changepoint.data.melt <- melt(id.var=1:nrow(changepoint.data), changepoint.data)
 
+## Isotropic local constant model
+bw.lc <- npregbw(xdat=changepoint.data.melt[,1:2],ydat=changepoint.data.melt[,3])
+model.lc <- npreg(bw.lc)
 
-## 2D Real data
+image(1:dim(changepoint.data)[1], 1:dim(changepoint.data)[2],
+      matrix(model.lc$mean, nrow=dim(changepoint.data)[1], byrow=FALSE))
+
+## Anisotropic local constant model with one resmooth iteration and
+## and fixed range kernel bandwidth
+model.alc <- alc(changepoint.data.melt[,1:2],changepoint.data.melt[,3],bw.fixed.value=10)
+
+image(1:dim(changepoint.data)[1], 1:dim(changepoint.data)[2],
+      matrix(model.alc$mean, nrow=dim(changepoint.data)[1], byrow=FALSE))
+
+## 2D real fire spread change-point data
 \dontrun{
-  data('11slope01')
+  data("flat01")
+  changepoint.data <- flat01[,,1,20]
+
+  ## Plot with pixel locations
+  image(1:dim(changepoint.data)[1], 1:dim(changepoint.data)[2],
+      matrix(changepoint.data, nrow=dim(changepoint.data)[1], byrow=FALSE))
+
+  ## Melt the 2D image data for model estimation
+  changepoint.data.melt <- melt(id.var=1:nrow(changepoint.data), changepoint.data)
+
+  ## Isotropic local constant model
+  bw.lc <- npregbw(xdat=changepoint.data.melt[,1:2],ydat=changepoint.data.melt[,3])
+  model.lc <- npreg(bw.lc)
+
+  image(1:dim(changepoint.data)[1], 1:dim(changepoint.data)[2],
+      matrix(model.lc$mean, nrow=dim(changepoint.data)[1], byrow=FALSE))
+
+  ## Anisotropic local constant model with one resmooth iteration and
+  ## and fixed range kernel bandwidth
+  model.alc <- alc(changepoint.data.melt[,1:2],changepoint.data.melt[,3],bw.fixed.value=10)
+
+  image(1:dim(changepoint.data)[1], 1:dim(changepoint.data)[2],
+      matrix(model.alc$mean, nrow=dim(changepoint.data)[1], byrow=FALSE))
+  }
 }
-
 options(np.messages=TRUE)
-
 }
 
 \keyword{nonparametric}
