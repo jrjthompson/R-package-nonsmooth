@@ -37,12 +37,17 @@ alc(X,Y,bw.fixed.value=NULL,resmooths=1,\dots)
 }
 
 \value{
- The code here returns a \code{npregression} object. For more details, see the \code{npreg}
- function in the \code{np} package.
+ The code here returns a \code{npregression} object of the iteratively smoothed estimator.
+ For more details, see the \code{npreg} function in the \code{np} package.
 }
 
 \seealso{
   \code{\link{npreg}}, \code{\link{npregbw}}
+}
+
+\references{
+
+    Thompson, J.R.J. (2024) \dQuote{Iterative Smoothing for Change-point Regression Function Estimation}, \emph{Journal of Applied Statistics}, 1-25. <https://doi.org/10.1080/02664763.2024.2352759>
 }
 
 \examples{

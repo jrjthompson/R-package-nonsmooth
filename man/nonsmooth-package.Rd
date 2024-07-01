@@ -5,10 +5,10 @@
 \title{Nonparametric methods for smoothing nonsmooth data}
 \description{
 
-	This package provides nonparametric methods for smoothing nonsmooth data.
-	Change-point data is the intended applications, with a focus on those with
-	jumps in the regression function. Descriptions of the implementation of these
-	methods can be found in Thompson, J.R.J. (2024).
+This package provides nonparametric methods for smoothing nonsmooth data.
+Change-point data is the intended applications, with a focus on those with
+jumps in the regression function. Descriptions of the implementation of these
+methods can be found in Thompson, J.R.J. (2024).
 
 }
 
@@ -16,7 +16,7 @@
 
 This package also contains fire spread data for micro-fire experiments. This data is
 treated as time dependent two-dimensional change-point data. The boundaries between
-fuel, burning and burn-out regions are defined by two change-point curves in the data.
+fuel, burning and burn-out regions are seperated by two change-point curves.
 More information on experimentation and data can be found in Thompson, Wang, and Braun
 (2020) and Wang, Thompson, and Braun (2019).
 
@@ -33,11 +33,11 @@ More information on experimentation and data can be found in Thompson, Wang, and
 }
 \references{
 
-    Thompson, J.R.J. (2024) \dQuote{Iterative Smoothing for Change-point Regression Function Estimation}, \emph{Journal of Applied Statistics}, 1-25. <https://www.tandfonline.com/doi/abs/10.1080/02664763.2024.2352759>
+    Thompson, J.R.J. (2024) \dQuote{Iterative Smoothing for Change-point Regression Function Estimation}, \emph{Journal of Applied Statistics}, 1-25. <https://doi.org/10.1080/02664763.2024.2352759>
 
     Thompson, J.R.J., Wang, X.J., & Braun, W.J. (2020) \dQuote{A mouse model for studying fire spread rates using experimental micro-fires}, \emph{Journal of Environmental Statistics}, 9(1), 1-19. <http://www.jenvstat.org/v09/i06>
 
-    Wang, X.J., Thompson, J.R.J., Braun, W.J., & Woolford, D.G. (2019) \dQuote{Fitting a stochastic fire spread model to data.} \emph{Advances in Statistical Climatology, Meteorology and Oceanography}, 5(1), 57-66. <https://ascmo.copernicus.org/articles/5/57/2019/>
+    Wang, X.J., Thompson, J.R.J., Braun, W.J., & Woolford, D.G. (2019) \dQuote{Fitting a stochastic fire spread model to data.} \emph{Advances in Statistical Climatology, Meteorology and Oceanography}, 5(1), 57-66. <https://doi.org/10.5194/ascmo-5-57-2019>
 
 
 }
