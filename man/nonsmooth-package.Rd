@@ -6,7 +6,7 @@
 \description{
 
 This package provides nonparametric methods for smoothing nonsmooth data.
-Change-point data is the intended applications, with a focus on those with
+Change-point data is the intended application, with a focus on those with
 jumps in the regression function. Descriptions of the implementation of these
 methods can be found in Thompson, J.R.J. (2024).
 
@@ -14,11 +14,13 @@ methods can be found in Thompson, J.R.J. (2024).
 
 \details{
 
-This package also contains fire spread data for micro-fire experiments. This data is
-treated as time dependent two-dimensional change-point data. The boundaries between
-fuel, burning and burn-out regions are seperated by two change-point curves.
-More information on experimentation and data can be found in Thompson, Wang, and Braun
-(2020) and Wang, Thompson, and Braun (2019).
+This package contains two additional functions for simulated one-D and two-D
+change-point data. This package also contains a real fire spread dataset from
+a micro-fire experiment. This data can be viewed as time dependent
+two-dimensional change-point data. The boundaries between fuel, burning and
+burn-out regions are seperated bytwo change-point curves. More information
+on experimentation and data can befound in Thompson, Wang, and Braun (2020)
+and Wang, Thompson, and Braun (2019).
 
 }
 

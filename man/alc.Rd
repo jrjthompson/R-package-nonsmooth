@@ -94,8 +94,8 @@ image(1:dim(changepoint.data)[1], 1:dim(changepoint.data)[2],
 
 ## 2D real fire spread change-point data
 \dontrun{
-  data("flat01")
-  changepoint.data <- flat01[,,1,20]
+  data("fireData")
+  changepoint.data <- fireData[,,1,20]
 
   ## Plot with pixel locations
   image(1:dim(changepoint.data)[1], 1:dim(changepoint.data)[2],
