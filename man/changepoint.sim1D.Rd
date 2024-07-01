@@ -20,7 +20,8 @@ changepoint.sim1D(n,sigma=1,data.type = "continuousWithJump")
   \item{data.type}{Character value for different data types. The options for
   change-point data are: constant functions seperated by two jumps
   (\code{"uniformJump"}), linear functions seperated by two change-points in
-  the first derivative (\code{"uniformJump"}), and nonlinear data with a jump (\code{"continuousWithJump"}). A smooth continuous function with no
+  the first derivative (\code{"gradualJump"}), and nonlinear data with a jump
+  (\code{"continuousWithJump"}). A smooth continuous function with no
   change-points (\code{"continuous"}) is the same functions as
   \code{"continuousWithJump"} but without the change-point. See Thompson,
   J.R.J. (2024) for more details on these data types.}
@@ -41,8 +42,23 @@ and the data generating process.
 }
 
 \examples{
-## Simple example of a 1D change-point
+## 1D continuous data of nonlinear functions with a jump change-point
 changepoint.data <- changepoint.sim1D(100)
+plot(changepoint.data$X,changepoint.data$Y,xlab = "X",ylab = "Y",pch=1,col="grey",las=1)
+lines(changepoint.data$X,changepoint.data$oracle,col="red",lty=1)
+
+## 1D continuous data of constant functions with two jump change-points
+changepoint.data <- changepoint.sim1D(100,data.type="uniformJump")
+plot(changepoint.data$X,changepoint.data$Y,xlab = "X",ylab = "Y",pch=1,col="grey",las=1)
+lines(changepoint.data$X,changepoint.data$oracle,col="red",lty=1)
+
+## 1D continuous data of linear functions with two derivative change-points
+changepoint.data <- changepoint.sim1D(100,data.type="gradualJump")
+plot(changepoint.data$X,changepoint.data$Y,xlab = "X",ylab = "Y",pch=1,col="grey",las=1)
+lines(changepoint.data$X,changepoint.data$oracle,col="red",lty=1)
+
+## 1D continuous data of a nonlinear continuous function
+changepoint.data <- changepoint.sim1D(100,data.type="continuous")
 plot(changepoint.data$X,changepoint.data$Y,xlab = "X",ylab = "Y",pch=1,col="grey",las=1)
 lines(changepoint.data$X,changepoint.data$oracle,col="red",lty=1)
 }

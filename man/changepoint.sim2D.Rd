@@ -6,7 +6,7 @@ Simulated change-point data for two-dimensions
 }
 
 \description{
-This function simulated circular change-point data with Gaussian noise.
+This function simulates circular change-point data with Gaussian noise.
 }
 
 \usage{
@@ -22,7 +22,7 @@ changepoint.sim2D(data.dim = c(100,100),sigma = 20,radius=NULL,cbase=80,ctop=130
   Numeric value of standard deviation.
   }
   \item{radius}{
-  Numeric value of the radius of the inner disk before the change-point. The radius cannot be larger than one half of either dimension in \code{data.dim}. Defaults to one quarter of the first dimension of \code{data.dim}.
+  Numeric value of the radius of the inner disk before the change-point. The radius cannot be larger than one-half of either dimension in \code{data.dim}. Defaults to one-quarter of the first dimension of \code{data.dim}.
   }
   \item{cbase}{
   Numeric value for the disk that radiates out from the approximate center of the dataset.

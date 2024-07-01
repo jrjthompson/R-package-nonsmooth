@@ -7,7 +7,7 @@ This function implements the method in Thompson, J.R.J. (2024) for iterative smo
 of change-point data that utilizes oversmoothed estimates of the underlying data
 generating process to inform re-smoothing. The function calculates a local constant
 estimator \eqn{\tilde{g}(X)} of \eqn{Y=g(X)+\epsilon}, and then utilizes \eqn{\tilde{g}(x)}
-in the range kernel of another local constant estimator. This processes is iterated
+in the range kernel of another local constant estimator. This process is iterated
 for a specified number of resmooth iterations.
 }
 \usage{
@@ -16,23 +16,26 @@ alc(X,Y,bw.fixed.value=NULL,resmooths=1,\dots)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{X}{
-  matrix of \eqn{p} columns of the observations for continuous explanatory variables.
+  numeric matrix of \eqn{p} columns of the observations for continuous explanatory variables.
 }
   \item{Y}{
-  vector of the continuous response variable.
+  numeric vector of the continuous response variable.
 }
   \item{bw.fixed.value}{
-  vector of fixed bandwidths for domain kernels. Default is \code{NULL}, which allows
-  for optimal bandwidth selection via cross-validaton during each re-smooth.
+  numeric value for the bandwidth of the range kernel. Setting this value sets the
+  iterative smoothing bandwidths to be the local constant estimator bandwidths for
+  domain kernels and the set value for the range kernel. Default is \code{NULL}, which
+  isan optimal bandwidth selection procedure during each re-smooth through the
+  \code{npreg} function.
 }
   \item{resmooths}{
-  number of resmooth iterations. Default is 1 resmooth, which is a suggested starting point
+  integer number of resmooth iterations. Default is 1 resmooth, which is a suggested starting point
   for iterative smoothing.
 }
   \item{\dots}{
   additional specifications for \code{np} smoothing, such as optimal bandwidth selection
   procedure, kernel type,  regression estimator, and so on. See \code{npreg} function for
-  more details. The defaults
+  more details and defaults.
 }
 }
 
@@ -51,6 +54,7 @@ alc(X,Y,bw.fixed.value=NULL,resmooths=1,\dots)
 }
 
 \examples{
+\dontrun{
 library(np)
 options(np.messages=FALSE)
 
@@ -71,6 +75,7 @@ lines(changepoint.data$X,model.lc$mean,col="blue",lty=1)
 lines(changepoint.data$X,model.alc$mean,col="red",lty=1)
 
 ## 2D Simulated image change-point data
+## This simulation and estimation can take up to 5 minutes
 library(reshape2)
 changepoint.data <- changepoint.sim2D(data.dim=c(50,50))
 image(changepoint.data)
@@ -93,7 +98,6 @@ image(1:dim(changepoint.data)[1], 1:dim(changepoint.data)[2],
       matrix(model.alc$mean, nrow=dim(changepoint.data)[1], byrow=FALSE))
 
 ## 2D real fire spread change-point data
-\dontrun{
   data("fireData")
   changepoint.data <- fireData[,,1,20]
 

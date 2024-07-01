@@ -18,7 +18,7 @@ This package contains two additional functions for simulated one-D and two-D
 change-point data. This package also contains a real fire spread dataset from
 a micro-fire experiment. This data can be viewed as time dependent
 two-dimensional change-point data. The boundaries between fuel, burning and
-burn-out regions are seperated bytwo change-point curves. More information
+burn-out regions are seperated by two change-point curves. More information
 on experimentation and data can befound in Thompson, Wang, and Braun (2020)
 and Wang, Thompson, and Braun (2019).
 

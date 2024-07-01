@@ -19,7 +19,7 @@ The movie of the fire spread is a data frame with four dimensions. The
 first and second dimensions of the data frame are the pixel coordinates
 of one image. The third dimension is the RGB channel, with the red channel
 (1), blue channel (2), and green channel (3). The fourth dimension is time,
-starting at ignition (time point 1), and then each RGB image is seperated by
+starting at ignition (time point 1), and then each RGB image is separated by
 one second for a total of 45 seconds.
 
 }
