@@ -35,11 +35,11 @@ and Wang, Thompson, and Braun (2019).
 }
 \references{
 
-    Thompson, J.R.J. (2024) \dQuote{Iterative Smoothing for Change-point Regression Function Estimation}, \emph{Journal of Applied Statistics}, 1-25. <https://doi.org/10.1080/02664763.2024.2352759>
+    Thompson, J.R.J. (2024) \dQuote{Iterative Smoothing for Change-point Regression Function Estimation}, \emph{Journal of Applied Statistics}, 1-25. <doi:10.1080/02664763.2024.2352759>
 
-    Thompson, J.R.J., Wang, X.J., & Braun, W.J. (2020) \dQuote{A mouse model for studying fire spread rates using experimental micro-fires}, \emph{Journal of Environmental Statistics}, 9(1), 1-19. <http://www.jenvstat.org/v09/i06>
+    Thompson, J.R.J., Wang, X.J., & Braun, W.J. (2020) \dQuote{A mouse model for studying fire spread rates using experimental micro-fires}, \emph{Journal of Environmental Statistics}, 9(1), 1-19. <[https://www.jenvstat.org/v09/i06]https://www.jenvstat.org/v09/i06>
 
-    Wang, X.J., Thompson, J.R.J., Braun, W.J., & Woolford, D.G. (2019) \dQuote{Fitting a stochastic fire spread model to data.} \emph{Advances in Statistical Climatology, Meteorology and Oceanography}, 5(1), 57-66. <https://doi.org/10.5194/ascmo-5-57-2019>
+    Wang, X.J., Thompson, J.R.J., Braun, W.J., & Woolford, D.G. (2019) \dQuote{Fitting a stochastic fire spread model to data.} \emph{Advances in Statistical Climatology, Meteorology and Oceanography}, 5(1), 57-66. <[https://ascmo.copernicus.org/articles/5/57/2019/]https://ascmo.copernicus.org/articles/5/57/2019/>
 
 
 }

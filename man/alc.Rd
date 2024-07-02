@@ -45,16 +45,16 @@ alc(X,Y,bw.fixed.value=NULL,resmooths=1,\dots)
 }
 
 \seealso{
-  \code{\link{npreg}}, \code{\link{npregbw}}
+  \code{\link[np]{npreg}}, \code{\link[np]{npregbw}}
 }
 
 \references{
 
-    Thompson, J.R.J. (2024) \dQuote{Iterative Smoothing for Change-point Regression Function Estimation}, \emph{Journal of Applied Statistics}, 1-25. <https://doi.org/10.1080/02664763.2024.2352759>
+    Thompson, J.R.J. (2024) \dQuote{Iterative Smoothing for Change-point Regression Function Estimation}, \emph{Journal of Applied Statistics}, 1-25. <doi:10.1080/02664763.2024.2352759>
 }
 
 \examples{
-\dontrun{
+\donttest{
 library(np)
 options(np.messages=FALSE)
 

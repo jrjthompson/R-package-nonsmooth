@@ -1,7 +1,7 @@
 \name{fireData}
 \docType{data}
 \alias{fireData}
-\title{Wax paper fire smouldering experiment conducted in a fume hoood}
+\title{Wax paper fire smouldering experiment conducted in a fume hood}
 \description{
 
 The fire spread data consists of 45 segmented RGB images from a fire
@@ -31,13 +31,13 @@ one second for a total of 45 seconds.
   Thompson, J.R.J., Wang, X.J., & Braun, W.J. (2020) \dQuote{A mouse
   model for studying fire spread rates using experimental micro-fires},
   \emph{Journal of Environmental Statistics}, 9(1), 1-19.
-  <http://www.jenvstat.org/v09/i06>
+  <[https://www.jenvstat.org/v09/i06]https://www.jenvstat.org/v09/i06>
 
   Wang, X.J., Thompson, J.R.J., Braun, W.J., & Woolford, D.G. (2019)
   \dQuote{Fitting a stochastic fire spread model to data.}
   \emph{Advances in Statistical Climatology, Meteorology and
   Oceanography}, 5(1), 57-66.
-  <https://ascmo.copernicus.org/articles/5/57/2019/>
+  <[https://ascmo.copernicus.org/articles/5/57/2019/]https://ascmo.copernicus.org/articles/5/57/2019/>
 
 }
 
